@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/addCart.css">
+    <link rel="stylesheet" type="text/css" href="css/playVideo.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <script src="js/app.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/onMouseOver.js"></script>
+    <script src="js/addCart.js"></script>
+    <script src="js/playVideo.js"></script>
+    <script src="js/form.js"></script>
+</head>
+
+<body>
+    <header>
+        <img style="width: 250px;" src="images/openBSD.png" alt="">
+        <img style="width: 200px;padding-bottom: 1cm; margin-left: -1cm;" src="images/Petco_Logo.png" alt="">
+    </header>
+
+    <p id= "demo" onmouseover="mouseOver()" onmouseout="mouseOut()" style="font-size: 40px; text-align: center;">Automatic Slideshow</p>
+
+    <img name="slide" class="myIMG" style="padding-bottom: 1cm">
+    <br>
+
+    <p style="font-size: 40px; text-align: center; padding-bottom: 5cm;">Slider</p>
+    <div class="images-slideshow">
+        <div class="imageSlides fade">
+            <img class="imgSlider" src="images/imagesForSlider/image1.jpg" title="Clown fish">
+        </div>
+        <div class="imageSlides fade">
+            <img class="imgSlider" src="images/imagesForSlider/image2.jpg" title="Yellow tang fish">
+        </div>
+        <div class="imageSlides fade">
+            <img class="imgSlider" src="images/imagesForSlider/image3.jpg" title="Butterfly fish">
+        </div>
+        <div class="imageSlides fade">
+            <img class="imgSlider" src="images/imagesForSlider/image4.jpg" title="Angel fish">
+        </div>
+        <div class="imageSlides fade">
+            <img class="imgSlider" src="images/imagesForSlider/image5.jpg" title="Mandarin fish">
+        </div>
+        <div class="imageSlides fade">
+            <img class="imgSlider" src="images/imagesForSlider/image6.jpg" title="Lion fish">
+        </div>
+        <a class="slider-btn previous" onclick="setSlides(-1)">❮</a>
+        <a class="slider-btn next" onclick="setSlides(1)">❯</a>
+    </div>
+
+    <h1 style="font-size: 40px; text-align: center;"><b>Products: </b></h1>
+    <hr>
+    <table border="1">
+        <tr>
+            <td><img src="images/clownfish.jpg" width="300px" onclick="ShowVideoClownFish()"></td>
+            <td align="center" style="width: 40%">Clownfish</td>
+            <td align="center" style="width: 30%">$2700</td>
+            <td align="center" style="width: 20%"><button class ="addProductToCart" onclick="themSanPham(this)">Add to cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="images/YellowTang.jpg" width="300px" onclick="ShowVideoYellowTang()"></td>
+            <td align="center" style="width: 40%">Yellow Tang fish</td>
+            <td align="center" style="width: 30%">$1500</td>
+            <td align="center" style="width: 20%"><button class ="addProductToCart" onclick="themSanPham(this)">Add to cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="images/butterflyfish.jpg" width="300px" onclick="ShowVideoButterFlyFish()"></td>
+            <td align="center" style="width: 40%">Butterfly fish</td>
+            <td align="center" style="width: 30%">$1200</td>
+            <td align="center" style="width: 20%"><button class ="addProductToCart" onclick="themSanPham(this)">Add to cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="images/emperorAngelfish.jpg" width="300px" onclick="ShowVideoAngelFish()"></td>
+            <td align="center" style="width: 40%">Angel fish</td>
+            <td align="center" style="width: 30%">$1700</td>
+            <td align="center" style="width: 20%"><button class ="addProductToCart" onclick="themSanPham(this)">Add to cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="images/greenMandarinGoby.jpg" width="300px"></td>
+            <td align="center" style="width: 40%">Green Mandarin goby fish</td>
+            <td align="center" style="width: 30%">$1700</td>
+            <td align="center" style="width: 20%"><button class ="addProductToCart" onclick="themSanPham(this)">Add to cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="images/lionFish.jpg" width="300px"></td>
+            <td align="center" style="width: 40%">Lion fish</td>
+            <td align="center" style="width: 30%">$1700</td>
+            <td align="center" style="width: 20%"><button class ="addProductToCart" onclick="themSanPham(this)">Add to cart</button></td>
+        </tr>
+    </table>
+    <h3>Your cart: </h3>
+    <div>
+        <table border = "1" id="cart"></table>
+
+        <h3>Total: $<span id="tong"></span></h3>
+    </div>
+
+    <div >
+        <button type="button" onclick="buy()"
+        style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;">Buy</button>
+    </div>
+
+    <!-Video của Clown fish-->
+    <div class="clownFishVideo">
+        <a id="closeClownFish" href="#" onclick="closeVideoClownFish()">&#x24E7;</a>
+        <video width="700" id="VideoCardClownFish" Controls>
+            <source src="videos/Clownfish.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="backClownFish" onclick="closeVideoClownFish()"></div>
+
+    <!-Video của Yellow Tang-->
+    <div class="yellowTangVideo">
+        <a id="closeVideoYellowTang" href="#" onclick="closeVideoYellowTang()">&#x24E7;</a>
+        <video width="700" id="VideoCardYellowTang" Controls>
+            <source src="videos/Zebrasoma%20Flavescens%20-%20Another%20Yellow%20Tang.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="backYellowTang" onclick="closeVideoYellowTang()"></div>
+
+    <!-Video của Butterfly Fish-->
+    <div class="butterFlyFishVideo">
+        <a id="closeVideoButterFlyFish" href="#" onclick="closeVideoButterFlyFish()">&#x24E7;</a>
+        <video width="700" id="VideoCardButterFlyFish" Controls>
+            <source src="videos/Copperband%20eating%20frozen%20brine%20%20%20mysis%20in%20QT.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="backButterFlyFish" onclick="closeVideoButterFlyFish()"></div>
+
+    <!-Video của Angel Fish-->
+    <div class="angelFishVideo">
+        <a id="closeVideoAngelFish" href="#" onclick="closeVideoAngelFish()">&#x24E7;</a>
+        <video width="700" id="VideoCardAngelFish" Controls>
+            <source src="videos/Emperor%20Angelfish%20&%20Purple%20Tang%20in%202014.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="backAngelFish" onclick="closeVideoAngelFish()"></div>
+
+    <h3 style="color: #26619C; font-size: 50px" align="center">One of the most beautiful saltwater fish</h3>
+    <img onmouseover="mOver()" onmouseout="mOut()" id ="picture" width="700px" src ="images/large-empangelj.jpg" style="margin-left: 30%">
+
+    <h3 style="color: #26619C; font-size: 50px;" align="center" >Customer Service</h3>
+    <div class ="container">
+        <form name="myForm" action="" onsubmit="return validate()">
+            <div class="formGroup">
+                <label class="formLabel">Your name:</label>
+                <input type="text" class="formControl" id = "name">
+            </div>
+
+            <div class="formGroup">
+                <label class="formLabel">Your email:</label>
+                <input type="email" class="formControl" id = "email">
+            </div>
+            <div class="formGroup">
+                <label class="formLabel">Your phone number:</label>
+                <input type="number" class="formControl" id = "phone">
+            </div>
+            <div class="formGroup">
+                <label class="formLabel">Your question:</label>
+                <input type="text" class="formControl" id = "question">
+            </div>
+            <div class="submitBtn">
+                <button type="submit" onclick="validateForm()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p style="font-size: 30px;"> Terms of UsePrivacy PolicyYour Privacy ChoicesYour Privacy Choices IconSite
+            MapWebsite Accessibility Policy</p><br>
+        <p>©2022 Petco Animal Supplies, Inc. All rights reserved.</p>
+        <p>Petco Animal Supplies, Inc.® is not an insurer and is not engaged in the business of insurance. PetCoach, LLC
+            is a licensed insurance producer, not an insurer, and a wholly owned subsidiary of Petco Animal Supplies,
+            Inc. The Petco name is used for the brand name. In California, PetCoach, LLC does business as PetCoach
+            Insurance Solutions Agency (CA License No. 0M10414).</p><br>
+        <p>Pet Insurance plans are underwritten by United States Fire Insurance Company (NAIC#21113. Morristown, NJ).
+            Insurance plans are marketed and offered by PetCoach, LLC.</p><br>
+        <p>Pre-existing conditions are not covered. Waiting periods, annual deductible, co-insurance, benefit limits and
+            exclusions may apply. Click here for all terms and conditions. Products, schedules, discounts, and rates may
+            vary and are subject to change. More information available at checkout. Enroll at petco.com/petco-insurance.
+        </p><br>
+        <span>
+            <img src="images/openBSD.png" width="250px" style="margin-right: 70%; margin-bottom: -1.5cm;">
+            <img src="images/Petco_Logo.png" width="200px">
+        </span>
+    </footer>
+    
+    <script>
+    function mouseOver() {
+        document.getElementById("demo").style.color = "red";
+    }
+
+    function mouseOut() {
+        document.getElementById("demo").style.color = "black";
+    }
+
+    function buy() {
+        let a = document.getElementById("tong").innerText;
+        if(a != 0) {
+            alert("Thanh toán thành công");
+        } else if (a == 0) {
+            alert("Giỏ hàng còn trống");
+        }
+    }
+    </script>
+</body>
+
+</html>
